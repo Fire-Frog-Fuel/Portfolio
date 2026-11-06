@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Legacies of a Lifetime — by Farıkito (Moria)</title>
+<meta name="description" content="Legacies of a lifetime — code, electronics, photography and writing by Farıkito (Moria).">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌱</text></svg>">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,800&family=Space+Grotesk:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500;700&family=Playfair+Display:wght@400;600;800&family=Lora:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@400;500;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+/* ============================================================
+   THEME ENGINE
+   --primary : the active tab's colour (everything derives from it)
+   --font-*  : swapped per tab so each section has its own voice
+   ============================================================ */
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --primary:#12a150;
+  --primary-deep:#0b7a3a;
+  --primary-soft:#e7f9ef;
+  --bg:#fdfdfb;
+  --surface:#ffffff;
+  --surface-2:#f6f8f6;
+  --text:#10221a;
+  --muted:#5c6b64;
+  --line:#e4e9e6;
+  --shadow:0 12px 34px rgba(16,34,26,.09);
+  --shadow-lg:0 26px 60px rgba(16,34,26,.16);
+  --radius:20px;
+  --radius-sm:12px;
+  --font-head:'Fraunces',Georgia,serif;
+  --font-body:'Fraunces',Georgia,serif;
+  --font-ui:'Inter',system-ui,sans-serif;
+  --font-mono:'IBM Plex Mono',ui-monospace,monospace;
+  --nav-h:70px;
+}
+html[data-theme="dark"]{
+  --bg:#0c0f0d;
+  --surface:#141a17;
+  --surface-2:#1b231f;
+  --text:#eef4f0;
+  --muted:#9aa8a1;
+  --line:#27302b;
+  --primary-soft:#16241c;
+  --shadow:0 12px 34px rgba(0,0,0,.45);
+  --shadow-lg:0 26px 60px rgba(0,0,0,.6);
+}
+html{scroll-behavior:smooth}
+body{
+  font-family:var(--font-body);
+  background:var(--bg);color:var(--text);
+  min-height:100vh;overflow-x:hidden;
+  transition:background-color .55s ease,color .55s ease;
+  -webkit-font-smoothing:antialiased;
+}
+body::before{ /* soft themed glow */
+  content:"";position:fixed;inset:0;pointer-events:none;z-index:0;
+  background:
+    radial-gradient(620px 340px at 86% -8%, color-mix(in srgb,var(--primary) 22%,transparent), transparent 68%),
+    radial-gradient(520px 320px at -10% 108%, color-mix(in srgb,var(--primary) 15%,transparent), transparent 68%);
+  transition:background .55s ease;
+}
+/* ---- per-tab typefaces ---- */
+body.font-fraunces {--font-head:'Fraunces',Georgia,serif;        --font-body:'Fraunces',Georgia,serif}
+body.font-space    {--font-head:'Space Grotesk',system-ui,sans-serif; --font-body:'Space Grotesk',system-ui,sans-serif}
+body.font-plexmono {--font-head:'IBM Plex Mono',ui-monospace,monospace; --font-body:'IBM Plex Mono',ui-monospace,monospace}
+body.font-playfair {--font-head:'Playfair Display',Georgia,serif; --font-body:'Playfair Display',Georgia,serif}
+body.font-lora     {--font-head:'Lora',Georgia,serif;            --font-body:'Lora',Georgia,serif}
+body.font-dmsans   {--font-head:'DM Sans',system-ui,sans-serif;  --font-body:'DM Sans',system-ui,sans-serif}
+body.font-inter    {--font-head:'Inter',system-ui,sans-serif;    --font-body:'Inter',system-ui,sans-serif}
+
+/* ---------- header ---------- */
+header{
+  position:sticky;top:0;z-index:60;
+  background:color-mix(in srgb,var(--bg) 82%,transparent);
+  backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+  border-bottom:1px solid color-mix(in srgb,var(--primary) 16%,transparent);
+  transition:background-color .55s,border-color .55s;
+}
+.header-inner{
+  max-width:1180px;margin:0 auto;padding:12px 22px;
+  min-height:var(--nav-h);
+  display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;
+}
+.brand{display:flex;align-items:center;gap:12px;cursor:pointer;background:none;border:none;text-align:left;color:inherit}
+.logo{
+  width:44px;height:44px;border-radius:14px;
+  background:var(--primary);color:#fff;
+  display:flex;align-items:center;justify-content:center;
+  font-family:var(--font-head);font-weight:800;font-size:1.2rem;
+  box-shadow:0 8px 18px color-mix(in srgb,var(--primary) 38%,transparent);
+  transition:background-color .55s,box-shadow .55s;
+}
+.brand-text strong{display:block;font-family:var(--font-head);font-size:1.06rem;letter-spacing:-.015em;line-height:1.2}
+.brand-text span{font-size:.76rem;color:var(--muted);letter-spacing:.02em}
+nav{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.tabs{display:flex;gap:6px;flex-wrap:wrap}
+.tab{
+  border:2px solid transparent;background:transparent;color:var(--text);
+  font-family:var(--font-ui);font-weight:600;font-size:.86rem;
+  padding:.48rem 1.05rem;border-radius:999px;cursor:pointer;
+  transition:background-color .25s,color .25s,border-color .25s,transform .18s,box-shadow .25s;
+  white-space:nowrap;
+}
+.tab:hover{background:color-mix(in srgb,var(--primary) 13%,transparent);transform:translateY(-1px)}
+.tab:focus-visible{outline:2px solid var(--primary);outline-offset:2px}
+.tab.active{
+  background:var(--primary);color:#fff;border-color:var(--primary-deep);
+  box-shadow:0 8px 18px color-mix(in srgb,var(--primary) 38%,transparent);
+}
+.icon-btn{
+  width:40px;height:40px;border-radius:50%;border:1.5px solid var(--line);
+  background:var(--surface);color:var(--text);cursor:pointer;font-size:1rem;
+  display:flex;align-items:center;justify-content:center;transition:all .2s;
+}
+.icon-btn:hover{border-color:var(--primary);color:var(--primary);transform:translateY(-1px)}
+
+main{position:relative;z-index:1;max-width:1180px;margin:0 auto;padding:48px 22px 90px}
+.view{animation:fadeUp .5s cubic-bezier(.22,.9,.3,1) both}
+@keyframes fadeUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+
+.kicker{
+  display:inline-block;font-family:var(--font-ui);font-size:.7rem;font-weight:700;
+  letter-spacing:.16em;text-transform:uppercase;color:var(--primary);
+  background:color-mix(in srgb,var(--primary) 12%,transparent);
+  padding:.42rem 1rem;border-radius:999px;margin-bottom:18px;
+}
+h1.hero-title{
+  font-family:var(--font-head);font-weight:800;
+  font-size:clamp(2.2rem,6vw,4rem);line-height:1.06;letter-spacing:-.03em;margin-bottom:20px;
+}
+h1.hero-title .accent{color:var(--primary)}
+h2.sec-title{
+  font-family:var(--font-head);font-weight:800;
+  font-size:clamp(1.8rem,4vw,2.7rem);line-height:1.14;letter-spacing:-.025em;margin-bottom:14px;
+}
+.lede{font-size:1.06rem;line-height:1.75;color:var(--muted);max-width:660px;margin-bottom:34px}
+
+/* ---------- buttons ---------- */
+.btn{
+  display:inline-flex;align-items:center;gap:.5rem;
+  font-family:var(--font-ui);font-weight:600;font-size:.93rem;
+  padding:.8rem 1.7rem;border-radius:999px;cursor:pointer;text-decoration:none;
+  background:var(--primary);color:#fff;border:2px solid var(--primary);
+  transition:transform .2s,box-shadow .25s,background-color .55s,border-color .55s,color .25s;
+}
+.btn:hover{transform:translateY(-2px);box-shadow:0 12px 26px color-mix(in srgb,var(--primary) 42%,transparent)}
+.btn.ghost{background:transparent;color:var(--primary)}
+.btn.ghost:hover{background:color-mix(in srgb,var(--primary) 10%,transparent)}
+.btn.small{padding:.55rem 1.2rem;font-size:.84rem}
+
+/* ---------- home ---------- */
+.hero{padding-top:8px}
+.cta-row{display:flex;gap:12px;flex-wrap:wrap;margin:28px 0 46px}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:14px;margin-bottom:56px;max-width:720px}
+.stat{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius-sm);padding:1.1rem 1.2rem;box-shadow:var(--shadow);transition:transform .25s,border-color .4s}
+.stat:hover{transform:translateY(-3px);border-color:color-mix(in srgb,var(--primary) 40%,transparent)}
+.stat b{display:block;font-family:var(--font-head);font-size:1.8rem;font-weight:800;color:var(--primary);line-height:1}
+.stat span{font-size:.78rem;color:var(--muted);font-family:var(--font-ui)}
+.split-head{display:flex;align-items:baseline;justify-content:space-between;gap:14px;flex-wrap:wrap;margin-bottom:22px}
+
+/* ---------- cards (projects) ---------- */
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1.4rem}
+.card{
+  background:var(--surface);border:1px solid var(--line);
+  border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);
+  display:flex;flex-direction:column;
+  transition:transform .28s cubic-bezier(.22,.9,.3,1),box-shadow .3s,border-color .55s;
+}
+.card:hover{transform:translateY(-6px);box-shadow:var(--shadow-lg);border-color:color-mix(in srgb,var(--primary) 38%,transparent)}
+.card-media{
+  height:172px;display:flex;align-items:center;justify-content:center;
+  font-family:var(--font-head);font-size:3.2rem;font-weight:800;color:#fff;
+  background:linear-gradient(135deg,var(--primary),var(--primary-deep));
+  overflow:hidden;transition:background .55s;
+}
+.card-media img{width:100%;height:100%;object-fit:cover;display:block}
+.card-body{padding:1.2rem 1.3rem 1.35rem;display:flex;flex-direction:column;gap:.6rem;flex:1}
+.card-body h3{font-family:var(--font-head);font-size:1.14rem;font-weight:700;line-height:1.3}
+.card-body p{font-size:.92rem;line-height:1.62;color:var(--muted);flex:1}
+.chips{display:flex;gap:7px;flex-wrap:wrap}
+.chip{
+  font-family:var(--font-ui);font-size:.7rem;font-weight:600;
+  padding:.26rem .68rem;border-radius:999px;
+  background:color-mix(in srgb,var(--primary) 13%,transparent);color:var(--primary);
+}
+.card-foot{display:flex;align-items:center;justify-content:space-between;gap:10px}
+.card-link{font-family:var(--font-ui);font-weight:700;font-size:.85rem;text-decoration:none;color:var(--primary)}
+.card-link:hover{text-decoration:underline}
+.year{font-family:var(--font-mono);font-size:.74rem;color:var(--muted)}
+
+/* ---------- gallery ---------- */
+.gallery{columns:3 260px;column-gap:1.1rem}
+@media(max-width:720px){.gallery{columns:2 150px}}
+.frame{
+  break-inside:avoid;margin-bottom:1.1rem;position:relative;cursor:zoom-in;
+  border-radius:var(--radius-sm);overflow:hidden;background:var(--surface);
+  border:1px solid var(--line);box-shadow:var(--shadow);
+  transition:transform .28s,box-shadow .3s;
+}
+.frame:hover{transform:translateY(-5px);box-shadow:var(--shadow-lg)}
+.frame img{width:100%;display:block}
+.frame figcaption{
+  padding:.85rem 1rem;font-family:var(--font-ui);font-size:.8rem;color:var(--muted);
+  display:flex;justify-content:space-between;gap:10px;
+}
+.frame figcaption b{color:var(--text);font-weight:600}
+.frame .cap{font-size:.74rem;color:var(--muted);display:block;margin-top:.2rem;font-family:var(--font-body)}
+
+/* ---------- blog ---------- */
+.post-row{
+  background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);
+  padding:1.35rem 1.6rem;margin-bottom:1rem;cursor:pointer;
+  transition:transform .24s,box-shadow .3s,border-color .55s;
+}
+.post-row:hover{transform:translateX(6px);box-shadow:var(--shadow-lg);border-color:color-mix(in srgb,var(--primary) 36%,transparent)}
+.post-row time{
+  font-family:var(--font-ui);font-size:.74rem;font-weight:700;letter-spacing:.08em;
+  text-transform:uppercase;color:var(--primary);
+}
+.post-row h3{font-family:var(--font-head);font-size:1.22rem;font-weight:700;margin:7px 0}
+.post-row p{font-size:.94rem;line-height:1.62;color:var(--muted)}
+.readmore{display:inline-block;margin-top:11px;font-family:var(--font-ui);font-weight:700;font-size:.83rem;color:var(--primary)}
+.post-detail{max-width:760px;margin:0 auto}
+.back-btn{
+  border:none;background:color-mix(in srgb,var(--primary) 12%,transparent);color:var(--primary);
+  font-family:var(--font-ui);font-weight:700;font-size:.83rem;cursor:pointer;
+  padding:.5rem 1.1rem;border-radius:999px;margin-bottom:24px;transition:transform .2s;
+}
+.back-btn:hover{transform:translateX(-3px)}
+.post-detail h2{font-family:var(--font-head);font-size:clamp(1.6rem,4vw,2.4rem);font-weight:800;line-height:1.22;margin:8px 0 10px}
+.post-meta{font-family:var(--font-ui);font-size:.82rem;color:var(--muted);display:block;margin-bottom:28px}
+.post-body p{font-size:1.08rem;line-height:1.9;margin-bottom:1.3rem}
+
+/* ---------- about ---------- */
+.about{max-width:730px}
+.about p{font-size:1.06rem;line-height:1.9;margin-bottom:1.35rem}
+.about p:first-of-type{font-size:1.2rem}
+.about p:first-of-type::first-letter{
+  font-family:var(--font-head);font-size:3.2rem;font-weight:800;float:left;
+  line-height:.86;margin:10px 14px 0 0;color:var(--primary);
+}
+.about h3{font-family:var(--font-head);font-size:1.25rem;margin:2rem 0 .8rem}
+.timeline{list-style:none;border-left:2px solid color-mix(in srgb,var(--primary) 35%,transparent);padding-left:1.3rem}
+.timeline li{position:relative;padding-bottom:1.4rem}
+.timeline li::before{content:"";position:absolute;left:-1.72rem;top:.35rem;width:11px;height:11px;border-radius:50%;background:var(--primary)}
+.timeline b{font-family:var(--font-ui);font-size:.8rem;color:var(--primary);display:block;letter-spacing:.05em}
+.timeline span{font-size:.96rem;color:var(--muted);line-height:1.6}
+
+/* ---------- contact ---------- */
+.contact-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1.2rem;margin-bottom:2.2rem}
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:1.6rem;box-shadow:var(--shadow)}
+.panel h3{font-family:var(--font-head);font-size:1.02rem;margin-bottom:12px;color:var(--primary)}
+.panel a{color:var(--primary);text-decoration:none;font-weight:600;word-break:break-all}
+.panel a:hover{text-decoration:underline}
+.socials{display:flex;gap:10px;flex-wrap:wrap}
+.social-pill{
+  font-family:var(--font-ui);font-size:.83rem;font-weight:600;text-decoration:none;
+  padding:.5rem 1.1rem;border-radius:999px;color:#fff;background:var(--primary);
+  transition:transform .2s,background-color .55s;
+}
+.social-pill:hover{transform:translateY(-2px)}
+form.contact{max-width:660px;display:grid;gap:14px}
+form.contact label{font-family:var(--font-ui);font-size:.78rem;font-weight:700;letter-spacing:.04em;display:block;margin-bottom:.3rem}
+form.contact input,form.contact textarea{
+  width:100%;font-family:var(--font-body);font-size:.96rem;
+  padding:.78rem 1rem;border:1.5px solid var(--line);border-radius:var(--radius-sm);
+  outline:none;background:var(--surface);color:var(--text);
+  transition:border-color .22s,background-color .55s;
+}
+form.contact input:focus,form.contact textarea:focus{border-color:var(--primary);box-shadow:0 0 0 3px color-mix(in srgb,var(--primary) 16%,transparent)}
+form.contact textarea{min-height:140px;resize:vertical;line-height:1.6}
+.form-note{font-family:var(--font-ui);font-size:.76rem;color:var(--muted);margin-top:.5rem}
+
+/* ---------- misc ---------- */
+.empty-note{color:var(--muted);font-style:italic;padding:2rem 0}
+footer{
+  position:relative;z-index:1;border-top:1px solid var(--line);
+  padding:26px 22px;text-align:center;font-family:var(--font-ui);
+  font-size:.82rem;color:var(--muted);transition:border-color .55s;
+}
+footer .foot-tabs{margin-top:10px;display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+footer .foot-tabs a{color:var(--muted);text-decoration:none;font-size:.78rem}
+footer .foot-tabs a:hover{color:var(--primary)}
+#toTop{
+  position:fixed;right:22px;bottom:22px;z-index:70;
+  width:46px;height:46px;border-radius:50%;border:none;cursor:pointer;
+  background:var(--primary);color:#fff;font-size:1.05rem;box-shadow:var(--shadow-lg);
+  opacity:0;pointer-events:none;transition:opacity .3s,transform .2s;
+}
+#toTop.show{opacity:1;pointer-events:auto}
+#toTop:hover{transform:translateY(-3px)}
+
+/* ---------- lightbox ---------- */
+#lightbox{
+  position:fixed;inset:0;z-index:100;background:rgba(8,12,10,.92);
+  display:none;align-items:center;justify-content:center;padding:3rem 1.5rem;backdrop-filter:blur(6px);
+}
+#lightbox.open{display:flex;animation:fadeIn .3s both}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+#lightbox img{max-width:100%;max-height:78vh;border-radius:14px;box-shadow:0 30px 80px rgba(0,0,0,.6)}
+#lightbox .lb-cap{position:absolute;bottom:2.2rem;left:50%;transform:translateX(-50%);text-align:center;color:#e8efe9;font-family:var(--font-ui);font-size:.86rem;max-width:640px}
+#lightbox .lb-close{position:absolute;top:1.2rem;right:1.4rem;background:none;border:none;color:#fff;font-size:2rem;cursor:pointer;line-height:1}
+#lightbox .lb-nav{position:absolute;top:50%;transform:translateY(-50%);background:rgba(255,255,255,.12);border:none;color:#fff;font-size:1.8rem;width:52px;height:52px;border-radius:50%;cursor:pointer}
+#lightbox .lb-nav:hover{background:rgba(255,255,255,.22)}
+#lightbox .lb-prev{left:1.4rem}#lightbox .lb-next{right:1.4rem}
+
+@media (max-width:700px){
+  .header-inner{justify-content:center;text-align:center;gap:10px}
+  .brand{width:100%;justify-content:center}
+  nav{width:100%;justify-content:center}
+  main{padding-top:32px}
+  #toTop{right:14px;bottom:14px}
+}
+@media print{header,#toTop,footer{display:none}}
+</style>
+</head>
+<body>
+<header>
+  <div class="header-inner">
+    <button class="brand" onclick="go('home')" aria-label="Home">
+      <span class="logo" id="logo">🌱</span>
+      <span class="brand-text">
+        <strong id="siteName">…</strong>
+        <span id="siteTagline">…</span>
+      </span>
+    </button>
+    <nav>
+      <div class="tabs" id="tabs" role="tablist"></div>
+      <button class="icon-btn" id="themeBtn" title="Toggle light / dark" onclick="toggleTheme()">🌙</button>
+    </nav>
+  </div>
+</header>
+
+<main><div id="view" class="view"></div></main>
+
+<footer>
+  <p id="footerText"></p>
+  <div class="foot-tabs" id="footTabs"></div>
+</footer>
+
+<button id="toTop" title="Back to top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<div id="lightbox" onclick="if(event.target.id==='lightbox')closeLightbox()">
+  <button class="lb-close" onclick="closeLightbox()">×</button>
+  <button class="lb-nav lb-prev" onclick="stepLightbox(-1)">‹</button>
+  <img id="lbImg" src="" alt="">
+  <button class="lb-nav lb-next" onclick="stepLightbox(1)">›</button>
+  <p class="lb-cap" id="lbCap"></p>
+</div>
+
+<script src="data.js"></script>
+<script>
+/* ================================================================
+   APP  —  you never need to edit this file to change your content.
+   All text/images live in data.js (or are edited via admin.html).
+   ================================================================ */
+(function(){
+  'use strict';
+  const STORAGE_KEY = 'siteData';
+  const THEME_KEY   = 'siteTheme';
+  /* data.js declares `const SITE`. A top-level const in a classic script is
+     visible as a bare identifier but is NOT a property of window, so we must
+     feature-detect it rather than read window.SITE. */
+  const FALLBACK    = (typeof SITE !== 'undefined') ? SITE : {sections:[], title:'Portfolio'};
+  let state = { data:null, activeId:null, post:null, galleryIndex:0 };
+
+  /* ---------- data ---------- */
+  function loadData(){
+    try{
+      const saved = localStorage.getItem(STORAGE_KEY);
+      if(saved){ const p = JSON.parse(saved); if(p && p.sections) return p; }
+    }catch(e){ /* corrupt draft — fall back */ }
+    return FALLBACK;
+  }
+  function saveDraft(d){ try{ localStorage.setItem(STORAGE_KEY, JSON.stringify(d)); }catch(e){} }
+
+  /* ---------- helpers ---------- */
+  const esc = s => String(s==null?'':s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+  function hexToRgb(h){
+    h = String(h||'#12a150').replace('#','');
+    if(h.length===3) h = h.split('').map(c=>c+c).join('');
+    const n = parseInt(h,16);
+    return isNaN(n) ? [18,161,80] : [(n>>16)&255,(n>>8)&255,n&255];
+  }
+  function darken(hex, amt){
+    const [r,g,b] = hexToRgb(hex), f = v => Math.round(v*(1-amt));
+    return 'rgb('+f(r)+','+f(g)+','+f(b)+')';
+  }
+  function tint(hex, w){
+    const [r,g,b] = hexToRgb(hex), f = v => Math.round(v+(255-v)*w);
+    return 'rgb('+f(r)+','+f(g)+','+f(b)+')';
+  }
+  function isDark(){ return document.documentElement.getAttribute('data-theme') === 'dark'; }
+  function go(id){
+    state.post = null;
+    if(('#'+id) === location.hash) render();
+    else location.hash = id;
+  }
+  window.go = go;
+
+  /* ---------- theming ---------- */
+  function applyTheme(sec){
+    const col = sec.color || '#12a150';
+    const r = document.documentElement.style;
+    r.setProperty('--primary', col);
+    r.setProperty('--primary-deep', darken(col, .28));
+    r.setProperty('--primary-soft', tint(col, .92));
+    document.body.className = 'font-' + (sec.font || 'fraunces');
+
+    const data = state.data;
+    document.getElementById('logo').textContent      = (data.title||'L').trim().charAt(0).toUpperCase();
+    document.getElementById('siteName').textContent  = data.title   || 'Portfolio';
+    document.getElementById('siteTagline').textContent = data.tagline || '';
+    document.getElementById('footerText').textContent = data.footer  || '';
+    document.title = (data.title ? data.title + ' — ' : '') + (sec.label || '');
+    document.getElementById('themeBtn').textContent = isDark() ? '☀️' : '🌙';
+  }
+  function toggleTheme(){
+    const next = isDark() ? 'light' : 'dark';
+    document.documentElement.setAttribute('data-theme', next);
+    try{ localStorage.setItem(THEME_KEY, next); }catch(e){}
+    document.getElementById('themeBtn').textContent = next==='dark' ? '☀️' : '🌙';
+  }
+  window.toggleTheme = toggleTheme;
+
+  /* ---------- chrome ---------- */
+  function renderNav(){
+    const data = state.data;
+    document.getElementById('tabs').innerHTML = data.sections.map(s =>
+      '<button class="tab'+(s.id===state.activeId?' active':'')+'" role="tab" data-id="'+esc(s.id)+'">'+esc(s.label)+'</button>'
+    ).join('');
+    document.querySelectorAll('.tab').forEach(b => b.onclick = () => go(b.dataset.id));
+    document.getElementById('footTabs').innerHTML = data.sections.map(s =>
+      '<a href="#'+esc(s.id)+'">'+esc(s.label)+'</a>').join('');
+  }
+  function head(sec){
+    return (sec.kicker ? '<p class="kicker">'+esc(sec.kicker)+'</p>' : '<p class="kicker">'+esc(sec.label)+'</p>') +
+      '<h2 class="sec-title">'+esc(sec.heading || sec.label)+'</h2>' +
+      (sec.intro ? '<p class="lede">'+esc(sec.intro)+'</p>' : '');
+  }
+
+  /* ---------- views ---------- */
+  /* Rich text: **bold**, *accent*, and _italic_ — safe because we escape first. */
+  function rich(s, base){
+    let out = esc(s);
+    out = out.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>');
+    out = out.replace(/\*([^*]+)\*/g, '<span class="accent">$1</span>');
+    out = out.replace(/_([^_]+)_/g, '<em>$1</em>');
+    return base ? base(out) : out;
+  }
+  function cardHTML(it){
+    const letter = esc((it.title||'?').trim().charAt(0).toUpperCase()||'?');
+    const media = it.image
+      ? '<div class="card-media"><img src="'+esc(it.image)+'" alt="'+esc(it.title)+'" loading="lazy" onerror="this.style.display=&#39;none&#39;;this.parentNode.textContent=&#39;'+letter.replace(/'/g,'&#39;')+'&#39;"></div>'
+      : '<div class="card-media">'+letter+'</div>';
+    const chips = (it.tags||[]).map(t => '<span class="chip">'+esc(t)+'</span>').join('');
+    const link  = it.link ? '<a class="card-link" href="'+esc(it.link)+'" target="_blank" rel="noopener">Visit →</a>' : '';
+    const year  = it.year ? '<span class="year">'+esc(it.year)+'</span>' : '';
+    return '<article class="card">'+media+'<div class="card-body">'+
+      '<h3>'+esc(it.title)+'</h3><p>'+esc(it.desc)+'</p>'+
+      (chips?'<div class="chips">'+chips+'</div>':'')+
+      '<div class="card-foot">'+(link||'<span></span>')+year+'</div>'+
+      '</div></article>';
+  }
+  function renderHome(sec){
+    const data = state.data;
+    const cta = (data.sections.find(s=>s.type==='contact') ? '<a class="btn" href="#contact">Get in touch</a>' : '');
+    const others = data.sections.filter(s => s.id!==sec.id && ['projects','blog'].includes(s.type))
+      .map(s => '<a class="btn ghost" href="#'+esc(s.id)+'">'+esc(s.label)+' →</a>').join('');
+    const stats = (sec.stats||[]).map(s =>
+      '<div class="stat"><b>'+esc(s.value)+'</b><span>'+esc(s.label)+'</span></div>').join('');
+    const featured = data.sections.filter(s => s.type==='projects')
+      .flatMap(s => s.items||[]).slice(0,3).map(cardHTML).join('');
+    return '<section class="hero">'+
+      '<h1 class="hero-title">'+rich(sec.heading||'')+'</h1>'+
+      '<p class="lede">'+esc(sec.intro||'')+'</p>'+
+      '<div class="cta-row">'+cta+others+'</div>'+
+      (stats?'<div class="stats">'+stats+'</div>':'')+
+      (featured?'<div class="split-head"><h2 class="sec-title" style="font-size:1.5rem">'+esc(sec.featuredTitle||'Featured work')+'</h2>'+
+        '<a class="card-link" href="#'+esc((data.sections.find(s=>s.type==='projects')||{}).id||'')+'">See all →</a></div>'+
+        '<div class="cards">'+featured+'</div>':'')+
+      '</section>';
+  }
+  function renderProjects(sec){
+    const items = sec.items||[];
+    return '<section>'+head(sec)+
+      (items.length ? '<div class="cards">'+items.map(cardHTML).join('')+'</div>'
+                    : '<p class="empty-note">No projects yet — add some in admin.html.</p>')+
+      (sec.cta ? '<div class="cta-row" style="margin-top:2.2rem"><a class="btn ghost" href="'+esc(sec.cta.url)+'" target="_blank" rel="noopener">'+esc(sec.cta.label)+' →</a></div>' : '')+
+      '</section>';
+  }
+  function renderGallery(sec){
+    const items = sec.items||[];
+    const frames = items.map((it,i) =>
+      '<figure class="frame" data-i="'+i+'"><img src="'+esc(it.image)+'" alt="'+esc(it.title)+'" loading="lazy">'+
+      '<figcaption><span><b>'+esc(it.title)+'</b>'+(it.caption?'<span class="cap">'+esc(it.caption)+'</span>':'')+'</span>'+
+      '<span>'+esc(it.meta||'')+'</span></figcaption></figure>').join('');
+    return '<section>'+head(sec)+
+      (items.length ? '<div class="gallery">'+frames+'</div>' : '<p class="empty-note">No photos yet.</p>')+
+      '</section>';
+  }
+  function excerpt(b){
+    const t = String(b||'').split(/\n\n+/)[0] || '';
+    return t.length>155 ? t.slice(0,155).trimEnd()+'…' : t;
+  }
+  function renderBlog(sec){
+    const rows = (sec.items||[]).map((it,i) =>
+      '<article class="post-row" data-i="'+i+'"><time>'+esc(it.date||'')+'</time>'+
+      '<h3>'+esc(it.title)+'</h3><p>'+esc(excerpt(it.body))+'</p>'+
+      ((it.tags||[]).length?'<div class="chips" style="margin-top:.7rem">'+(it.tags||[]).map(t=>'<span class="chip">'+esc(t)+'</span>').join('')+'</div>':'')+
+      '<span class="readmore">Read post →</span></article>').join('');
+    return '<section>'+head(sec)+(rows||'<p class="empty-note">No posts yet — add some in admin.html.</p>')+'</section>';
+  }
+  function renderPost(sec, it){
+    const paras = String(it.body||'').split(/\n\n+/).map(p => '<p>'+esc(p).replace(/\n/g,'<br>')+'</p>').join('');
+    const tags = (it.tags||[]).map(t=>'<span class="chip">'+esc(t)+'</span>').join('');
+    return '<article class="post-detail">'+
+      '<button class="back-btn" id="backBtn">← All posts</button>'+
+      '<time class="post-meta">'+esc(it.date||'')+'</time>'+
+      '<h2>'+esc(it.title)+'</h2>'+
+      (tags?'<div class="chips" style="margin-bottom:1.6rem">'+tags+'</div>':'')+
+      '<div class="post-body">'+paras+'</div></article>';
+  }
+  function renderAbout(sec){
+    const paras = (sec.paragraphs||[]).map(p=>'<p>'+esc(p)+'</p>').join('');
+    const tl = (sec.timeline||[]).length
+      ? '<h3>Timeline</h3><ul class="timeline">'+sec.timeline.map(e=>'<li><b>'+esc(e.year)+'</b><span>'+esc(e.text)+'</span></li>').join('')+'</ul>'
+      : '';
+    const skills = (sec.skills||[]).length
+      ? '<h3>Tools I reach for</h3><div class="chips">'+sec.skills.map(s=>'<span class="chip">'+esc(s)+'</span>').join('')+'</div>'
+      : '';
+    return '<section>'+head(sec)+'<div class="about">'+paras+tl+skills+'</div></section>';
+  }
+  function renderContact(sec){
+    const socials = (sec.socials||[]).map(s =>
+      '<a class="social-pill" href="'+esc(s.url)+'" target="_blank" rel="noopener">'+esc(s.label)+'</a>').join('');
+    const email = sec.email || state.data.email || '';
+    return '<section>'+head(sec)+
+      '<div class="contact-grid">'+
+        '<div class="panel"><h3>📧 Email</h3>'+
+          (email?'<a href="mailto:'+esc(email)+'">'+esc(email)+'</a>':'<span style="color:var(--muted)">Set an email in admin.html</span>')+'</div>'+
+        '<div class="panel"><h3>🌐 Elsewhere</h3><div class="socials">'+(socials||'<span style="color:var(--muted)">No links yet</span>')+'</div></div>'+
+      '</div>'+
+      (email?'<form class="contact" id="contactForm">'+
+        '<div><label for="c-name">Your name</label><input id="c-name" required placeholder="Jane Doe"></div>'+
+        '<div><label for="c-email">Your email</label><input id="c-email" type="email" required placeholder="jane@example.com"></div>'+
+        '<div><label for="c-msg">Message</label><textarea id="c-msg" required placeholder="Hi! I\'d love to chat about…"></textarea></div>'+
+        '<div><button class="btn" type="submit">Send message</button>'+
+        '<p class="form-note">This opens your email app with the message pre-filled — no data is sent anywhere.</p></div>'+
+      '</form>':'')+
+      '</section>';
+  }
+
+  /* ---------- render ---------- */
+  function render(){
+    const data = state.data;
+    if(!data.sections || !data.sections.length){
+      document.getElementById('view').innerHTML = '<p class="empty-note">No sections found. Check data.js or open admin.html to create one.</p>';
+      return;
+    }
+    const wanted = location.hash ? location.hash.slice(1) : (data.defaultSection || data.sections[0].id);
+    const sec = data.sections.find(s => s.id===wanted) || data.sections[0];
+    state.activeId = sec.id;
+
+    applyTheme(sec);
+    renderNav();
+
+    let html;
+    /* NOTE: check against null, not truthiness — post index 0 is falsy! */
+    if(state.post !== null && sec.type==='blog' && sec.items && sec.items[state.post] != null){
+      html = renderPost(sec, sec.items[state.post]);
+    }else{
+      switch(sec.type){
+        case 'home':     html = renderHome(sec);     break;
+        case 'projects': html = renderProjects(sec); break;
+        case 'gallery':  html = renderGallery(sec);  break;
+        case 'blog':     html = renderBlog(sec);     break;
+        case 'contact':  html = renderContact(sec);  break;
+        default:         html = renderAbout(sec);
+      }
+    }
+    const view = document.getElementById('view');
+    view.innerHTML = html;
+    view.classList.remove('view'); void view.offsetWidth; view.classList.add('view');
+
+    /* wire up interactions */
+    document.querySelectorAll('.post-row').forEach(r => r.onclick = () => {
+      state.post = +r.dataset.i; render(); window.scrollTo({top:0,behavior:'smooth'});
+    });
+    const back = document.getElementById('backBtn');
+    if(back) back.onclick = () => { state.post = null; render(); };
+
+    document.querySelectorAll('.frame').forEach(f => f.onclick = () => openLightbox(+f.dataset.i));
+
+    const form = document.getElementById('contactForm');
+    if(form) form.onsubmit = e => {
+      e.preventDefault();
+      const name = document.getElementById('c-name').value;
+      const from = document.getElementById('c-email').value;
+      const msg  = document.getElementById('c-msg').value;
+      location.href = 'mailto:' + (sec.email || data.email || '') +
+        '?subject=' + encodeURIComponent('Message from ' + name) +
+        '&body=' + encodeURIComponent(msg + '\n\n— ' + name + ' (' + from + ')');
+    };
+  }
+
+  /* ---------- lightbox ---------- */
+  let lbItems = [], lbIndex = 0;
+  function openLightbox(i){
+    const sec = state.data.sections.find(s => s.id===state.activeId);
+    lbItems = (sec && sec.items) ? sec.items.filter(x => x.image) : [];
+    if(!lbItems.length) return;
+    lbIndex = i;
+    paintLightbox();
+    document.getElementById('lightbox').classList.add('open');
+    document.addEventListener('keydown', lbKeys);
+  }
+  function closeLightbox(){
+    document.getElementById('lightbox').classList.remove('open');
+    document.removeEventListener('keydown', lbKeys);
+  }
+  function paintLightbox(){
+    const it = lbItems[lbIndex]; if(!it) return;
+    document.getElementById('lbImg').src = it.image;
+    document.getElementById('lbImg').alt = it.title || '';
+    document.getElementById('lbCap').textContent = (it.title||'') + (it.caption ? ' — ' + it.caption : '');
+  }
+  function stepLightbox(d){ lbIndex = (lbIndex + d + lbItems.length) % lbItems.length; paintLightbox(); }
+  function lbKeys(e){
+    if(e.key==='Escape') closeLightbox();
+    if(e.key==='ArrowLeft')  stepLightbox(-1);
+    if(e.key==='ArrowRight') stepLightbox(1);
+  }
+  window.openLightbox = openLightbox;
+  window.closeLightbox = closeLightbox;
+  window.stepLightbox = stepLightbox;
+
+  /* ---------- boot ---------- */
+  try{
+    const t = localStorage.getItem(THEME_KEY);
+    if(t) document.documentElement.setAttribute('data-theme', t);
+    else if(state.data === null && FALLBACK.defaultTheme) document.documentElement.setAttribute('data-theme', FALLBACK.defaultTheme);
+  }catch(e){}
+
+  state.data = loadData();
+  window.SITE = state.data;   /* convenience handle for debugging */
+
+  window.addEventListener('hashchange', () => { state.post = null; render(); });
+  window.addEventListener('scroll', () => {
+    document.getElementById('toTop').classList.toggle('show', window.scrollY > 420);
+  }, {passive:true});
+
+  /* live-sync when admin.html changes the draft in another tab */
+  window.addEventListener('storage', e => {
+    if(e.key === STORAGE_KEY){ state.data = loadData(); render(); }
+  });
+
+  render();
+})();
+</script>
+</body>
+</html>
