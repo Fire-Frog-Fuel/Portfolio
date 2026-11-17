@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" role="img" aria-label="Projected pattern over a face in darkness">
+  <rect width="800" height="600" fill="#0a0a0c"/>
+  <defs>
+    <radialGradient id="g3" cx=".5" cy=".5" r=".5">
+      <stop offset="0" stop-color="#fff3c4"/>
+      <stop offset="1" stop-color="#fff3c4" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <polygon points="80,120 720,180 720,420 80,300" fill="#eae2b8" opacity="0.08"/>
+  <circle cx="80" cy="210" r="14" fill="#f3ead0"/>
+  <ellipse cx="430" cy="300" rx="130" ry="170" fill="#2a2a30"/>
+  <g stroke="#f7f1dc" stroke-width="2" opacity=".55" fill="none">
+    <path d="M300 240 h260 M300 280 h260 M300 320 h260 M300 360 h260"/>
+    <path d="M340 200 v200 M380 190 v210 M420 185 v220 M460 190 v210 M500 200 v200"/>
+  </g>
+  <ellipse cx="430" cy="300" rx="200" ry="250" fill="url(#g3)" opacity=".25"/>
+  <text x="400" y="560" text-anchor="middle" fill="#8a8a92" font-family="sans-serif" font-size="14">The projected self — light as the fabricator</text>
+</svg>

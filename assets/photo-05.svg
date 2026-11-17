@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" role="img" aria-label="Photogram-style arrangement of objects on light paper">
+  <rect width="800" height="600" fill="#f4f1ea"/>
+  <g fill="#2e2c33" opacity=".88">
+    <circle cx="180" cy="160" r="58"/>
+    <rect x="280" y="120" width="150" height="90" rx="8" transform="rotate(-8 355 165)"/>
+    <path d="M470 120 l70 60 l-70 60 z"/>
+    <rect x="580" y="140" width="20" height="200"/>
+    <circle cx="230" cy="380" r="40"/>
+    <rect x="330" y="330" width="90" height="130" rx="10" transform="rotate(14 375 395)"/>
+    <ellipse cx="560" cy="400" rx="70" ry="45"/>
+    <rect x="120" y="470" width="220" height="16" rx="8"/>
+    <circle cx="430" cy="490" r="26"/>
+    <rect x="500" y="470" width="180" height="30" rx="6"/>
+  </g>
+  <text x="400" y="565" text-anchor="middle" fill="#6b6b6b" font-family="sans-serif" font-size="14">The direct trace — no lens, no camera</text>
+</svg>

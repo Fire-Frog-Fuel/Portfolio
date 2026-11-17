@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" role="img" aria-label="Saturated screen-like composition">
+  <defs>
+    <linearGradient id="bg2" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ff3d7f"/>
+      <stop offset="0.5" stop-color="#ff8a3d"/>
+      <stop offset="1" stop-color="#ffd23d"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="600" fill="url(#bg2)"/>
+  <rect x="250" y="50" width="300" height="500" rx="28" fill="#111" opacity=".9"/>
+  <rect x="266" y="66" width="268" height="468" rx="18" fill="#fff" opacity=".92"/>
+  <g fill="#ff5e8a">
+    <rect x="280" y="82" width="80" height="80" rx="6"/>
+    <rect x="372" y="82" width="80" height="80" rx="6"/>
+    <rect x="464" y="82" width="80" height="80" rx="6"/>
+    <rect x="280" y="176" width="80" height="80" rx="6"/>
+    <rect x="372" y="176" width="80" height="80" rx="6"/>
+    <rect x="464" y="176" width="80" height="80" rx="6"/>
+  </g>
+  <g fill="#2d2d35">
+    <rect x="280" y="280" width="264" height="12" rx="6"/>
+    <rect x="280" y="304" width="200" height="12" rx="6"/>
+  </g>
+  <g fill="#111">
+    <rect x="280" y="340" width="6" height="70"/><rect x="292" y="340" width="12" height="70"/>
+    <rect x="310" y="340" width="4" height="70"/><rect x="322" y="340" width="14" height="70"/>
+    <rect x="342" y="340" width="6" height="70"/><rect x="354" y="340" width="10" height="70"/>
+    <rect x="370" y="340" width="4" height="70"/><rect x="380" y="340" width="16" height="70"/>
+  </g>
+  <text x="400" y="470" text-anchor="middle" fill="#111" font-family="sans-serif" font-size="16" font-weight="bold">99¢ — the digital cage</text>
+</svg>

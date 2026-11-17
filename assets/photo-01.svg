@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" role="img" aria-label="Typology grid of twelve identical portraits">
+  <defs>
+    <linearGradient id="bg1" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#2b2b30"/>
+      <stop offset="1" stop-color="#1a1a1e"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="600" fill="url(#bg1)"/>
+  <g fill="none" stroke="#55555e" stroke-width="1">
+    <path d="M200 60V560 M400 60V560 M600 60V560 M60 193h680 M60 326h680 M60 459h680"/>
+  </g>
+  <g fill="#c9c2b8">
+    <g transform="translate(60,60)"><rect x="0" y="0" width="120" height="113" fill="#3a3a40"/><circle cx="60" cy="42" r="22"/><rect x="24" y="70" width="72" height="38" rx="10"/></g>
+    <g transform="translate(260,60)"><rect x="0" y="0" width="120" height="113" fill="#3a3a40"/><circle cx="60" cy="42" r="22"/><rect x="24" y="70" width="72" height="38" rx="10"/></g>
+    <g transform="translate(460,60)"><rect x="0" y="0" width="120" height="113" fill="#3a3a40"/><circle cx="60" cy="42" r="22"/><rect x="24" y="70" width="72" height="38" rx="10"/></g>
+    <g transform="translate(660,60)"><rect x="0" y="0" width="120" height="113" fill="#3a3a40"/><circle cx="60" cy="42" r="22"/><rect x="24" y="70" width="72" height="38" rx="10"/></g>
+    <g transform="translate(60,193)"><rect x="0" y="0" width="120" height="113" fill="#3a3a40"/><circle cx="60" cy="42" r="22"/><rect x="24" y="70" width="72" height="38" rx="10"/></g>
+    <g transform="translate(260,193)"><rect x="0" y="0" width="120" height="113" fill="#3a3a40"/><circle cx="60" cy="42" r="22"/><rect x="24" y="70" width="72" height="38" rx="10"/></g>
+    <g transform="translate(460,193)"><rect x="0" y="0" width="120" height="113" fill="#3a3a40"/><circle cx="60" cy="42" r="22"/><rect x="24" y="70" width="72" height="38" rx="10"/></g>
+    <g transform="translate(660,193)"><rect x="0" y="0" width="120" height="113" fill="#3a3a40"/><circle cx="60" cy="42" r="22"/><rect x="24" y="70" width="72" height="38" rx="10"/></g>
+    <g transform="translate(60,326)"><rect x="0" y="0" width="120" height="113" fill="#3a3a40"/><circle cx="60" cy="42" r="22"/><rect x="24" y="70" width="72" height="38" rx="10"/></g>
+    <g transform="translate(260,326)"><rect x="0" y="0" width="120" height="113" fill="#3a3a40"/><circle cx="60" cy="42" r="22"/><rect x="24" y="70" width="72" height="38" rx="10"/></g>
+    <g transform="translate(460,326)"><rect x="0" y="0" width="120" height="113" fill="#3a3a40"/><circle cx="60" cy="42" r="22"/><rect x="24" y="70" width="72" height="38" rx="10"/></g>
+    <g transform="translate(660,326)"><rect x="0" y="0" width="120" height="113" fill="#3a3a40"/><circle cx="60" cy="42" r="22"/><rect x="24" y="70" width="72" height="38" rx="10"/></g>
+  </g>
+  <text x="400" y="590" text-anchor="middle" fill="#8a8a92" font-family="sans-serif" font-size="14">Shoot 1 — the typology</text>
+</svg>
