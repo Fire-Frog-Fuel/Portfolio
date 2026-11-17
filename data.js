@@ -1,6 +1,6 @@
 /* ============================================================
    LEGACIES OF A LIFETIME — site content
-   by Farıkito (Moria)
+   by Paikito
    ------------------------------------------------------------
    This is the ONLY file you need to touch to change text.
    You can also edit everything visually in admin.html and then
@@ -14,17 +14,15 @@ const SITE = {
 
   /* ---------- Site-wide info (header, footer, contact) ---------- */
   title: "Legacies of a Lifetime",
-  tagline: "by Farıkito (Moria)",
-  author: "Farıkito (Moria)",
-  email: "hello@example.com",
-  footer: "© 2026 Farıkito (Moria) · Legacies of a Lifetime",
+  tagline: "by Paikito",
+  author: "Paikito",
+  email: "ridiculum.manere@gmail.com",
+  footer: "© 2026 Paikito · Legacies of a Lifetime",
   defaultSection: "home",
   defaultTheme: "light",          // "light" or "dark"
 
   socials: [
-    { label: "GitHub",   url: "https://github.com/yourname" },
-    { label: "LinkedIn", url: "https://linkedin.com/in/yourname" },
-    { label: "Mastodon", url: "https://mastodon.social/@yourname" }
+    { label: "GitHub",   url: "https://github.com/fire-frog-fuel" },
   ],
 
   /* ============================================================
@@ -45,7 +43,7 @@ const SITE = {
       /* *asterisks* around a word paint it in the tab's colour. */
       heading: "Legacies of a *lifetime*.",
       intro: "I build things, take pictures of things, and occasionally take them apart to see how they work. This is the long-form record of all of it.",
-      kicker: "Farıkito (Moria)",
+      kicker: "Paikito ,
       stats: [
         { value: "12+", label: "Projects shipped" },
         { value: "3",   label: "Disciplines" },
@@ -206,12 +204,10 @@ const SITE = {
       font: "dmsans",
       heading: "Let's build something.",
       intro: "Got a project, a question, or just want to say hi? My inbox is open.",
-      email: "hello@example.com",
+      email: "ridiculum.manere@gmail.com",
       socials: [
-        { label: "GitHub",   url: "https://github.com/yourname" },
-        { label: "LinkedIn", url: "https://linkedin.com/in/yourname" },
-        { label: "Mastodon", url: "https://mastodon.social/@yourname" }
-      ]
+        { label: "GitHub",   url: "https://github.com/fire-frog-fuel" },
+
     }
   ]
 };
